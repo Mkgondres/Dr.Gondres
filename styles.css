@@ -1,0 +1,877 @@
+/* ==========================================================================
+   DR. GONDRES - SITIO WEB PREMIUM (PARTE 1 DE 2)
+   Contiene: Diseño de Variables, Resets, Navbar y Hero Section Interactiva
+   ========================================================================== */
+
+:root {
+    /* Paleta Cromática de Alta Firma */
+    --primary: #1A365D;          /* Azul Profundo: Autoridad y confianza médica */
+    --primary-gradient: linear-gradient(135deg, #1A365D 0%, #2A4365 100%);
+    --secondary: #2C7A7B;        /* Verde Eucalipto: Salud, vitalidad y pulcritud */
+    --secondary-hover: #234E52;
+    --accent: #D69E2E;           /* Oro Atenuado: El toque de distinción Premium */
+    --accent-hover: #B7791F;
+    
+    /* Fondos y Textos */
+    --bg-clean: #F7FAFC;         /* Gris ultra-claro: Sensación de clínica moderna */
+    --bg-white: #FFFFFF;
+    --text-main: #2D3748;        /* Gris Oxford: Lectura suave, no cansa la vista */
+    --text-muted: #718096;
+    --text-light: #E2E8F0;
+
+    /* Efectos de Alta Gama */
+    --shadow-premium: 0 20px 40px rgba(26, 54, 93, 0.06);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --shadow-floating: 0 30px 60px rgba(26, 54, 93, 0.15);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Curva de animación premium */
+}
+
+/* ========================================== */
+/* 1. CONFIGURACIÓN GLOBAL Y RESETS           */
+/* ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento ultra suave entre secciones */
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-clean);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* Estilos de Texto Comunes */
+h1, h2, h3 {
+    color: var(--primary);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+/* ========================================== */
+/* 2. BARRA DE NAVEGACIÓN (NAVBAR)            */
+/* ========================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Efecto esmerilado de iOS/Apple */
+    border-bottom: 1px solid rgba(26, 54, 93, 0.05);
+    padding: 15px 0;
+    transition: var(--transition-smooth);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    letter-spacing: -0.5px;
+}
+
+.logo-accent {
+    color: var(--secondary);
+}
+
+.logo-sub {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: -2px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--secondary);
+}
+
+/* Línea sutil decorativa al pasar el mouse */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary);
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-btn {
+    background-color: var(--primary);
+    color: var(--bg-white);
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(26, 54, 93, 0.15);
+}
+
+.nav-btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(44, 122, 123, 0.25);
+}
+
+/* Menú Móvil (Hamburguesa) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+/* ========================================== */
+/* 3. BOTONES PREMIUM GENERALES               */
+/* ========================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: var(--bg-white);
+    box-shadow: 0 10px 20px rgba(44, 122, 123, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(44, 122, 123, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid rgba(26, 54, 93, 0.15);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(26, 54, 93, 0.03);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* ========================================== */
+/* 4. HERO SECTION (IMPACTO PRINCIPAL)        */
+/* ========================================== */
+.hero-section {
+    padding: 160px 0 100px 0;
+    background: radial-gradient(circle at 80% 20%, rgba(44, 122, 123, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(26, 54, 93, 0.03) 0%, transparent 50%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: rgba(44, 122, 123, 0.08);
+    color: var(--secondary);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    max-width: 600px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* ========================================== */
+/* 5. DISEÑO DE LA FOTO INTERACTIVA Y BADGE   */
+/* ========================================== */
+.hero-image-wrapper {
+    position: relative;
+    justify-self: center;
+}
+
+.image-frame {
+    position: relative;
+    width: 360px;
+    height: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-floating);
+    cursor: pointer;
+    background-color: var(--primary);
+}
+
+/* Capa oro decorativa trasera */
+.hero-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--accent);
+    border-radius: 24px;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
+
+.hero-image-wrapper:hover::before {
+    transform: translate(-10px, 10px);
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efecto hover sobre la imagen */
+.image-frame:hover .hero-img {
+    transform: scale(1.06);
+}
+
+/* Capa interactiva de lupa/zoom */
+.image-overlay-zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(26, 54, 93, 0.4), transparent);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.image-frame:hover .image-overlay-zoom {
+    opacity: 1;
+}
+
+.zoom-icon {
+    width: 45px;
+    height: 45px;
+    fill: var(--bg-white);
+    background-color: rgba(44, 122, 123, 0.85);
+    padding: 10px;
+    border-radius: 50%;
+    transform: scale(0.8);
+    transition: var(--transition-smooth);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.image-frame:hover .zoom-icon {
+    transform: scale(1);
+}
+
+/* Insignia Flotante Premium (+30 años) */
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    left: -40px;
+    background-color: var(--bg-white);
+    padding: 18px 25px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 5px solid var(--accent);
+    animation: floatAnim 4s ease-in-out infinite; /* Animación de flotado continuo */
+}
+
+.badge-years {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+
+/* Animación sutil de levitación para la medalla */
+@keyframes floatAnim {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+/* ==========================================================================
+   DR. GONDRES - SITIO WEB PREMIUM (PARTE 2 DE 2)
+   Contiene: Trayectoria, Filosofía, Servicios, Formulario, Lightbox y Responsivo
+   ========================================================================== */
+
+/* Encabezados de Sección Comunes */
+.section-header {
+    margin-bottom: 50px;
+}
+.text-center { text-align: center; }
+.section-tagline {
+    display: block;
+    color: var(--secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.section-header h2 {
+    font-size: 2.4rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* ========================================== */
+/* 6. SECCIÓN TRAYECTORIA (ABOUT & TIMELINE)  */
+/* ========================================== */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--bg-white);
+}
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+.lead-text {
+    font-size: 1.3rem;
+    color: var(--primary);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--accent);
+    padding-left: 20px;
+}
+.about-bio p {
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+/* Línea de tiempo elegante */
+.about-timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid var(--text-light);
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-year {
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+.timeline-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+/* Nodo estético de la línea de tiempo */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--bg-white);
+    border: 3px solid var(--secondary);
+    transition: var(--transition-smooth);
+}
+.timeline-item:hover::before {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    transform: scale(1.3);
+}
+
+/* ========================================== */
+/* 7. SECCIÓN FILOSOFÍA (CARDS PREMIUM)      */
+/* ========================================== */
+.philosophy-section {
+    padding: 100px 0;
+}
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.premium-card {
+    background-color: var(--bg-white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(26, 54, 93, 0.02);
+}
+.premium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-premium);
+    border-color: rgba(44, 122, 123, 0.1);
+}
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(44, 122, 123, 0.05);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: var(--secondary);
+    transition: var(--transition-smooth);
+}
+.premium-card:hover .card-icon {
+    background-color: var(--secondary);
+    color: var(--bg-white);
+}
+.card-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+}
+.premium-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+.premium-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ========================================== */
+/* 8. SECCIÓN SERVICIOS (ESPECIALIDADES)      */
+/* ========================================== */
+.services-section {
+    padding: 100px 0;
+    background-color: var(--bg-white);
+}
+.services-wrapper {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+}
+.services-intro p {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+.model-notice {
+    background-color: rgba(26, 54, 93, 0.03);
+    border-left: 4px solid var(--primary);
+    padding: 20px;
+    border-radius: 0 12px 12px 0;
+    font-size: 0.95rem;
+    color: var(--primary);
+}
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.service-item {
+    display: flex;
+    gap: 25px;
+    padding: 25px;
+    border-radius: 16px;
+    background-color: var(--bg-clean);
+    transition: var(--transition-smooth);
+}
+.service-item:hover {
+    background-color: rgba(44, 122, 123, 0.04);
+    transform: translateX(5px);
+}
+.service-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: rgba(44, 122, 123, 0.3);
+    line-height: 1;
+}
+.service-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+.service-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ========================================== */
+/* 9. FORMULARIO E INTERACTIVIDAD DE CONTACTO */
+/* ========================================== */
+.contact-section {
+    padding: 100px 0;
+}
+.contact-interactive-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    margin-top: 40px;
+    align-items: start;
+}
+
+/* Estilos del Formulario */
+.appointment-form-container {
+    background-color: var(--bg-white);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-premium);
+}
+.premium-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+.premium-form input, 
+.premium-form select, 
+.premium-form textarea {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1.5px solid var(--text-light);
+    border-radius: 12px;
+    background-color: var(--bg-clean);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+/* Efectos de enfoque premium */
+.premium-form input:focus, 
+.premium-form select:focus, 
+.premium-form textarea:focus {
+    border-color: var(--secondary);
+    background-color: var(--bg-white);
+    box-shadow: 0 0 0 4px rgba(44, 122, 123, 0.1);
+}
+.btn-full {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+}
+
+/* Barra lateral informativa */
+.contact-sidebar {
+    height: 100%;
+}
+.sidebar-box {
+    background: var(--primary-gradient);
+    color: var(--bg-white);
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-floating);
+}
+.sidebar-box h3 {
+    color: var(--bg-white);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.sidebar-box p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+.sidebar-link-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    color: var(--bg-white);
+}
+.sidebar-link-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+.link-card-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.link-card-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--bg-white);
+}
+.link-card-text span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+.link-card-text strong {
+    font-size: 1rem;
+}
+/* Detalle visual sutil para diferenciar llamadas y WA */
+.src-wa .link-card-icon { background-color: #25D366; }
+
+.sidebar-info-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ========================================== */
+/* 10. LIGHTBOX / MODAL DE FOTO PREMIUM       */
+/* ========================================== */
+.lightbox-modal {
+    display: none; /* Se activa vía JS */
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 54, 93, 0.95);
+    backdrop-filter: blur(15px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.lightbox-modal.show {
+    display: flex;
+    opacity: 1;
+}
+.lightbox-content-wrapper {
+    max-width: 90%;
+    max-height: 80vh;
+    text-align: center;
+    position: relative;
+}
+.lightbox-img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    border: 4px solid var(--bg-white);
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lightbox-modal.show .lightbox-img {
+    transform: scale(1);
+}
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    color: var(--bg-white);
+    font-size: 2.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.lightbox-close:hover { color: var(--accent); }
+#lightboxCaption {
+    color: var(--bg-white);
+    margin-top: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================== */
+/* 11. FOOTER (PIE DE PÁGINA)                 */
+/* ========================================== */
+.main-footer {
+    background-color: var(--primary);
+    color: var(--bg-white);
+    padding: 40px 0;
+    border-top: 4px solid var(--accent);
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.footer-copy { font-size: 0.95rem; font-weight: 600; }
+.footer-disclaimer { font-size: 0.85rem; color: var(--text-light); }
+
+/* ========================================== */
+/* 12. RESPONSIVO TOTAL (MEDIA QUERIES)       */
+/* ========================================== */
+@media (max-width: 992px) {
+    html { font-size: 15px; }
+    .hero-container, .about-grid, .services-wrapper, .contact-interactive-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .hero-image-wrapper { order: -1; margin-bottom: 20px; }
+    .about-timeline { margin-top: 20px; }
+    .services-intro { text-align: center; }
+    .model-notice { text-align: left; }
+}
+
+@media (max-width: 768px) {
+    /* Activación del menú de hamburguesa en móviles */
+    .menu-toggle { display: flex; }
+    .nav-menu {
+        position: fixed;
+        top: 75px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 75px);
+        background-color: var(--bg-white);
+        flex-direction: column;
+        padding: 50px 0;
+        gap: 35px;
+        transition: var(--transition-smooth);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    }
+    .nav-menu.open { left: 0; }
+    .nav-link { font-size: 1.2rem; }
+    
+    .hero-title { font-size: 2.4rem; }
+    .image-frame { width: 290px; height: 370px; }
+    .floating-badge { left: -15px; padding: 12px 18px; }
+    .badge-years { font-size: 1.8rem; }
+    
+    .form-row { grid-template-columns: 1fr; gap: 20px; }
+    .appointment-form-container { padding: 25px; }
+    .footer-container { flex-direction: column; text-align: center; }
+}
