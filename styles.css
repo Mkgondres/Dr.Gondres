@@ -875,3 +875,20 @@ a {
     .appointment-form-container { padding: 25px; }
     .footer-container { flex-direction: column; text-align: center; }
 }
+/* ==========================================================================
+   AJUSTE DE PORTADA: ELIMINAR ESPACIO VACÍO INFERIOR
+   ========================================================================== */
+.hero-section {
+    min-height: auto !important;     /* Elimina la altura forzada de pantalla completa */
+    padding-top: 130px !important;   /* Mantiene el espacio elegante debajo de la navbar */
+    padding-bottom: 60px !important; /* Reduce drásticamente el vacío debajo de los botones */
+}
+
+/* Ajuste fino exclusivo para la vista móvil/vertical de la captura */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 110px !important;
+        padding-bottom: 40px !important; /* Deja el espacio justo para respirar */
+    }
+}
+
