@@ -163,3 +163,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 }); // Cierre definitivo del DOMContentLoaded principal de la primera mitad
+/* ==========================================================================
+   AJUSTE DE MENÚ MÓVIL: CERRAR AL TOCAR "AGENDAR CITA"
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const navMenu = document.getElementById('navMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    if (navMenu && mobileMenuBtn) {
+        // Captura absolutamente todos los enlaces y botones dentro del menú móvil
+        const elementsToClick = navMenu.querySelectorAll('a, button, .nav-link');
+        
+        elementsToClick.forEach(element => {
+            element.addEventListener('click', () => {
+                // Fuerza el cierre del menú y quita la animación al botón hamburguesa
+                navMenu.classList.remove('open');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+});
