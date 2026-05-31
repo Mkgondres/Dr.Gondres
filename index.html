@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Carlos A. Gondres Pablo | Pediatra de Excelencia en Cancún</title>
+    <!-- Enlace al archivo de estilos exclusivo -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,7 +23,8 @@
                 <a href="#trayectoria" class="nav-link">Trayectoria</a>
                 <a href="#filosofia" class="nav-link">Filosofía</a>
                 <a href="#servicios" class="nav-link">Atención</a>
-                <a href="#contacto" class="nav-btn">Agendar Cita</a>
+                <!-- Este botón redirige directamente al nuevo formulario interactivo al final -->
+                <a href="#formulario-consulta" class="nav-btn">Agendar Cita</a>
             </div>
             <button class="menu-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
                 <span class="bar"></span>
@@ -47,9 +49,10 @@
                         El rigor científico de la escuela médica cubana y más de tres décadas de experiencia clínica internacional, hoy al servicio de las familias en <strong>Cancún, México</strong>.
                     </p>
                     <div class="hero-actions">
-                        <a href="https://wa.me/529984144170" class="btn btn-primary" target="_blank" rel="noopener">
-                            <svg class="icon" viewBox="0 0 24 24"><path d="M12.012 3c-4.965 0-9.011 4.05-9.011 9.013 0 1.716.483 3.323 1.32 4.7l-1.32 4.821 4.935-1.295c1.326.726 2.84 1.14 4.453 1.14 4.965 0 9.013-4.05 9.013-9.012A9.014 9.014 0 0 0 12.012 3zm4.721 12.7c-.244.686-1.196 1.252-1.636 1.302-.407.047-.93.078-1.503-.105-.353-.114-.805-.274-1.377-.52-2.422-1.041-3.987-3.52-4.108-3.684-.12-.164-1.002-1.332-1.002-2.541 0-1.21.634-1.803.855-2.049.222-.246.488-.308.65-.308.163 0 .326.002.467.009.15.007.348-.057.545.418.203.49.692 1.682.752 1.804.06.124.102.268.019.434-.083.166-.124.269-.248.414-.124.143-.261.322-.373.431-.124.12-.255.251-.11.498.146.246.647 1.066 1.388 1.724.954.848 1.758 1.11 2.004 1.233.245.123.389.103.532-.06.143-.163.613-.715.776-.959.164-.244.327-.205.55-.122.223.082 1.41.664 1.655.787.244.123.407.184.468.287.06.104.06.602-.185 1.288z"/></svg>
-                            Agendar Consulta Privada
+                        <!-- Enlace ancla directo al formulario interno de la web -->
+                        <a href="#formulario-consulta" class="btn btn-primary">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                            Solicitar Cita en Línea
                         </a>
                         <a href="tel:+529984144170" class="btn btn-secondary">
                             Llamar Directo
@@ -57,8 +60,8 @@
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
-                    <!-- Contenedor interactivo de la foto de perfil -->
-                    <div class="image-frame" id="profileImageTrigger" title="Haga clic para ampliar la foto">
+                    <!-- Contenedor interactivo de la foto de perfil con efecto zoom/lightbox -->
+                    <div class="image-frame" id="profileImageTrigger" title="Haga clic para ampliar la foto del Dr. Gondres">
                         <img src="RUTADEIMAGE.jpg" alt="Dr. Carlos A. Gondres Pablo - Pediatra" class="hero-img">
                         <div class="image-overlay-zoom">
                             <svg class="zoom-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
@@ -200,32 +203,98 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- SECTION 5: CONTACTO (Agendar Directo)     -->
+        <!-- SECTION 5: CONTACTO Y FORMULARIO PREMIUM  -->
         <!-- ========================================== -->
-        <section id="contacto" class="contact-section">
-            <div class="container text-center">
-                <span class="section-tagline">Contacto Directo</span>
-                <h2>Pon la salud de tus hijos en manos expertas</h2>
-                <p class="contact-lead">Atención exclusiva previa cita en Cancún, México. Comunícate hoy mismo.</p>
-                
-                <div class="contact-details-box">
-                    <div class="detail-item">
-                        <span class="detail-label">Teléfono / WhatsApp</span>
-                        <a href="tel:+529984144170" class="detail-value">+52 998 414 4170</a>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Correo Electrónico Directo</span>
-                        <a href="mailto:contacto@doctorgondres.com" class="detail-value">contacto@doctorgondres.com</a>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Zona de Cobertura</span>
-                        <span class="detail-value">Cancún, Quintana Roo, México</span>
-                    </div>
+        <section id="formulario-consulta" class="contact-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tagline">Gestión de Citas</span>
+                    <h2>Agendar una Consulta Privada</h2>
+                    <p class="contact-lead">Por favor, rellene el siguiente formulario de preferencia o comuníquese de manera directa. Nos pondremos en contacto a la brevedad para confirmar su espacio.</p>
                 </div>
 
-                <a href="https://wa.me/529984144170" class="btn btn-primary btn-large" target="_blank" rel="noopener">
-                    Iniciar Chat de WhatsApp con el Dr. Gondres
-                </a>
+                <div class="contact-interactive-grid">
+                    <!-- Bloque Izquierdo: Formulario Moderno -->
+                    <div class="appointment-form-container">
+                        <form id="premiumAppointmentForm" class="premium-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="parentName">Nombre del Padre, Madre o Tutor</label>
+                                    <input type="text" id="parentName" name="parentName" placeholder="Ej. María González" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientName">Nombre del Paciente (Niño/a)</label>
+                                    <input type="text" id="patientName" name="patientName" placeholder="Ej. Carlos Gondres Jr." required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="patientAge">Edad del Paciente</label>
+                                    <input type="text" id="patientAge" name="patientAge" placeholder="Ej. 3 años / 5 meses" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Teléfono de Contacto (WhatsApp)</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Ej. +52 998 123 4567" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reason">Motivo Principal de la Consulta</label>
+                                <select id="reason" name="reason" required>
+                                    <option value="" disabled selected>Seleccione una opción...</option>
+                                    <option value="control">Control de Crecimiento de rutina (Cita General)</option>
+                                    <option value="enfermedad">Padecimiento o Sintomatología Actual (Fiebre, tos, etc.)</option>
+                                    <option value="nutricion">Asesoría Nutricional o Lactancia</option>
+                                    <option value="segunda-opinion">Segunda Opinión Médica Especializada</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Detalles adicionales o síntomas (Opcional)</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Describa brevemente cómo podemos ayudar a su hijo..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full">Enviar Solicitud de Cita</button>
+                        </form>
+                    </div>
+
+                    <!-- Bloque Derecho: Información de Respaldo Directo -->
+                    <div class="contact-sidebar">
+                        <div class="sidebar-box">
+                            <h3>Contacto Inmediato</h3>
+                            <p>Si prefiere no utilizar el formulario o requiere asistencia prioritaria, presione los canales de enlace directo:</p>
+                            
+                            <div class="sidebar-links">
+                                <a href="https://wa.me/529984144170" class="sidebar-link-card src-wa" target="_blank" rel="noopener">
+                                    <div class="link-card-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12.012 3c-4.965 0-9.011 4.05-9.011 9.013 0 1.716.483 3.323 1.32 4.7l-1.32 4.821 4.935-1.295c1.326.726 2.84 1.14 4.453 1.14 4.965 0 9.013-4.05 9.013-9.012A9.014 9.014 0 0 0 12.012 3zm4.721 12.7c-.244.686-1.196 1.252-1.636 1.302-.407.047-.93.078-1.503-.105-.353-.114-.805-.274-1.377-.52-2.422-1.041-3.987-3.52-4.108-3.684-.12-.164-1.002-1.332-1.002-2.541 0-1.21.634-1.803.855-2.049.222-.246.488-.308.65-.308.163 0 .326.002.467.009.15.007.348-.057.545.418.203.49.692 1.682.752 1.804.06.124.102.268.019.434-.083.166-.124.269-.248.414-.124.143-.261.322-.373.431-.124.12-.255.251-.11.498.146.246.647 1.066 1.388 1.724.954.848 1.758 1.11 2.004 1.233.245.123.389.103.532-.06.143-.163.613-.715.776-.959.164-.244.327-.205.55-.122.223.082 1.41.664 1.655.787.244.123.407.184.468.287.06.104.06.602-.185 1.288z"/></svg>
+                                    </div>
+                                    <div class="link-card-text">
+                                        <span>Mensaje de WhatsApp</span>
+                                        <strong>+52 998 414 4170</strong>
+                                    </div>
+                                </a>
+
+                                <a href="tel:+529984144170" class="sidebar-link-card src-tel">
+                                    <div class="link-card-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                                    </div>
+                                    <div class="link-card-text">
+                                        <span>Llamada Telefónica</span>
+                                        <strong>+52 998 414 4170</strong>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="sidebar-info-footer">
+                                <p><strong>Ubicación:</strong> Cancún, Quintana Roo, México.</p>
+                                <p><strong>Modalidad:</strong> Consulta Privada Programada.</p>
+                                <p><strong>Email:</strong> contacto@doctorgondres.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -236,6 +305,7 @@
     <div id="imageLightbox" class="lightbox-modal">
         <span class="lightbox-close" id="lightboxClose">&times;</span>
         <div class="lightbox-content-wrapper">
+            <!-- La ruta de esta imagen también debe coincidir con la de tu papá -->
             <img class="lightbox-img" id="lightboxTargetImg" src="RUTADEIMAGE.jpg" alt="Dr. Carlos A. Gondres Pablo">
             <div id="lightboxCaption">Dr. Carlos A. Gondres Pablo — Especialista en Pediatría</div>
         </div>
@@ -251,6 +321,7 @@
         </div>
     </footer>
 
+    <!-- Archivo JavaScript para controlar la interactividad -->
     <script src="script.js"></script>
 </body>
 </html>
