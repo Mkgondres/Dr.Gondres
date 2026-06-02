@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const body = `\n\n• *Tutor:* ${parentName}\n• *Paciente:* ${patientName}\n• *Edad:* ${patientAge}\n• *Contacto:* ${phoneContact}\n• *Motivo:* ${reasonText}\n• *Notas:* ${extraMessage || 'Ninguna'}`;
             
             // Creación del enlace seguro directo a su número
-            const whatsappBaseUrl = "https://wa.me/529984144170";
+            const whatsappBaseUrl = "https://wa.me/529981879456";
             const fullWhatsappUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(intro + body)}`;
 
             // Retraso controlado para simular un proceso de carga premium y abrir la aplicación
